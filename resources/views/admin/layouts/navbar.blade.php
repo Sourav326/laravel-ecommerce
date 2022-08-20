@@ -1,4 +1,4 @@
-@section('navbar')
+
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
                     id="layout-navbar">
                     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -47,8 +47,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">John Doe</span>
-                                                    <small class="text-muted">Admin</small>
+                                                    <span class="fw-semibold d-block">{{auth()->user()->first_name}} {{auth()->user()->last_name}}</span>
+                                                    <small class="text-muted">
+                                                        @if(auth()->user()->role == 0)
+                                                            User
+                                                        @else(auth()->user()->role == 1)
+                                                            Admin
+                                                        @endif
+                                                    </small>
                                                 </div>
                                             </div>
                                         </a>
@@ -93,5 +99,3 @@
                         </ul>
                     </div>
                 </nav>
-
-@endsection

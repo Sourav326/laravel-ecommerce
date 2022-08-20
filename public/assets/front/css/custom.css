@@ -1,0 +1,26 @@
+.width-45{
+    width: 48%;
+}
+
+.custom-flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-error{
+    border: 1px solid red;
+}
+.login-alert{
+    padding: 10px;
+}
+.login-alert-danger{
+    background-color: #f5a2a2;
+    color: #710b0b;
+    border-radius: 5px;
+}
+.alert-style{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 999;
+}

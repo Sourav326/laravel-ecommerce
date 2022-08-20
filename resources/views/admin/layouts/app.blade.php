@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{ asset('assets/admin/vendor/css/theme-default.css') }}"
         class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('assets/admin/css/demo.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/custom.css') }}" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('assets/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
@@ -44,24 +45,24 @@
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{ asset('assets/admin/js/config.js') }}"></script>
-    @livewireStyles
-</head>
+    <script src="{{ asset('assets/admin/js/config.js') }}"></script></head>
 
 <body>
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
-
-            @yield('sidebar')
+            
+            @include('admin.layouts.sidebar')
 
             <div class="layout-page">
 
-                @yield('navbar')
+                @include('admin.layouts.navbar')
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
-                    @yield('content')
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        @yield('content')
+                    </div>
 
-                    @yield('footer')
+                    @include('admin.layouts.footer')
 
                     <div class="content-backdrop fade"></div>
                 </div>
@@ -95,7 +96,6 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    @livewireScripts
 </body>
 
 </html>
