@@ -39,8 +39,8 @@ class ProductController extends Controller
      * @return response()
      */
     public function store(ProductRequest $request,ProductService $productService){
-        $data = $request->validated();
-        $check = $productService->create($data);
+        // $data = $request->validated();
+        $check = $productService->create($request);
         return redirect()->back()->with('success','Great! Product created successfully');
     }
 }

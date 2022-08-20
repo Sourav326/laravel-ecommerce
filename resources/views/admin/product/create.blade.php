@@ -3,6 +3,9 @@
     <!-- Content -->
     <div class="col-xl">
                   <div class="card mb-4">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
                     <div class="card-header d-flex justify-content-between align-items-center">
                       <h5 class="mb-0">Product Details</h5>
                       <small class="text-muted float-end">All fields with * are mandatory</small>
@@ -14,7 +17,7 @@
                       </div>
                     @endif
                     <div class="card-body">
-                      <form method="post" action="{{route('admin.product.store')}}" enctype="multipart/formdata">
+                      <form method="post" action="{{route('admin.product.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                           <div class="col-xl mb-3">
@@ -28,6 +31,7 @@
                                 name="title"
                                 class="form-control @error('title') input-error @enderror"
                                 id="basic-icon-default-fullname"
+                                value="{{old('title')}}"
                               />
                             </div>
                           </div>
@@ -40,7 +44,7 @@
                                 name="product_unique_code"
                                 id="product_unique_code"
                                 class="form-control @error('product_unique_code') input-error @enderror"
-                                
+                                value="{{old('product_unique_code')}}"
                               />
                               <span id="product_unique_code2" class="input-group-text @error('product_unique_code') input-error @enderror">phone_8_128</span>
                             </div>
@@ -59,6 +63,7 @@
                                 name="price_per_unit"
                                 id="price_per_unit"
                                 class="form-control @error('price_per_unit') input-error @enderror"
+                                value="{{old('price_per_unit')}}"
                               />
                             </div>
                           </div>
@@ -73,6 +78,7 @@
                               id="sale_price_per_unit"
                               name="sale_price_per_unit"
                               class="form-control phone-mask"
+                              value="{{old('sale_price_per_unit')}}"
                               />
                             </div>
                           </div>
@@ -95,6 +101,7 @@
                                 name="stock_quantity"
                                 id="stock_quantity"
                                 class="form-control @error('stock_quantity') input-error @enderror"
+                                value="{{old('stock_quantity')}}"
                               />
                             </div>
                           </div>
@@ -109,6 +116,7 @@
                                 name="stock_quantity_to_order"
                                 id="stock_quantity_to_order"
                                 class="form-control"
+                                value="{{old('stock_quantity_to_order')}}"
                               />
                             </div>
                           </div>
@@ -125,6 +133,7 @@
                                 name="tax_percentage"
                                 id="tax_percentage"
                                 class="form-control"
+                                value="{{old('tax_percentage')}}"
                               />
                             </div>
                           </div>
@@ -139,6 +148,7 @@
                               id="estimated_shipping_days"
                               name="estimated_shipping_days"
                               class="form-control phone-mask"
+                              value="{{old('estimated_shipping_days')}}"
                               />
                             </div>
                           </div>
@@ -153,6 +163,7 @@
                                 name="delivery_charges"
                                 id="delivery_charges"
                                 class="form-control"
+                                value="{{old('delivery_charges')}}"
                               />
                             </div>
                           </div>
@@ -167,6 +178,7 @@
                                 name="weight"
                                 id="weight"
                                 class="form-control"
+                                value="{{old('weight')}}"
                               />
                             </div>
                           </div>
@@ -181,6 +193,7 @@
                                 name="color"
                                 id="color"
                                 class="form-control"
+                                value="{{old('color')}}"
                               />
                             </div>
                           </div>
@@ -197,6 +210,7 @@
                                 name="description"
                                 class="form-control @error('description') input-error @enderror"
                                 rows="5"
+                                value="{{old('description')}}"
                               ></textarea>
                             </div>
                           </div>
