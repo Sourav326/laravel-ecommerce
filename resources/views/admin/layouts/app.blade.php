@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
-    data-assets-path="../assets/" data-template="vertical-menu-template-free">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
+    data-template="vertical-menu-template-free">
 
 <head>
     <meta charset="utf-8" />
@@ -45,12 +45,13 @@
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{ asset('assets/admin/js/config.js') }}"></script></head>
+    <script src="{{ asset('assets/admin/js/config.js') }}"></script>
+</head>
 
 <body>
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
-            
+
             @include('admin.layouts.sidebar')
 
             <div class="layout-page">
@@ -59,6 +60,16 @@
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
+                        @if (session('success'))
+                            <div class="bs-toast toast fade show bg-success" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                                <div class="toast-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body">
+                                    {{ session('success') }}
+                                </div>
+                            </div>
+                        @endif
                         @yield('content')
                     </div>
 

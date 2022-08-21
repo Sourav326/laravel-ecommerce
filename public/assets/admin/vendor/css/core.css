@@ -15794,8 +15794,8 @@ html:not(.layout-footer-fixed) .content-wrapper {
 }
 
 .avatar-xs {
-  width: 1.625rem;
-  height: 1.625rem;
+  width: 4.625rem;
+  height: 4.625rem;
 }
 .avatar-xs .avatar-initial {
   font-size: 0.625rem;

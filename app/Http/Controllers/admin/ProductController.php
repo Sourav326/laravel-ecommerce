@@ -31,10 +31,10 @@ class ProductController extends Controller
     public function create(){
         return view('admin.product.create');
     }
-
-
+    
+    
     /**
-     * view for creating the product
+     * For storing the product
      *
      * @return response()
      */
@@ -42,5 +42,38 @@ class ProductController extends Controller
         // $data = $request->validated();
         $check = $productService->create($request);
         return redirect()->back()->with('success','Great! Product created successfully');
+    }
+    
+    
+    /**
+     * view for edit the product
+     *
+     * @return response()
+     */
+    public function edit(ProductService $productService,$id){
+        $product = $productService->edit($id);
+        return view('admin.product.edit', ['product' => $product]);
+    }
+    
+    
+    /**
+     * For update the product
+     *
+     * @return response()
+     */
+    public function update(ProductRequest $request,ProductService $productService){
+        $productService->create($request);
+        return redirect()->back()->with('success','Great! Product updated successfully');
+    }
+
+
+    /**
+     * view for edit the product
+     *
+     * @return response()
+     */
+    public function destroy(ProductService $productService,$id){
+        $productService->destroy($id);
+        return redirect()->back()->with('success',' Product deleted successfully');
     }
 }

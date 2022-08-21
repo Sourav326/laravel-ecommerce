@@ -53,6 +53,9 @@ Route::prefix('admin')->middleware('is_admin')->group(function () {
         Route::get('/products','index')->name('admin.product.index');
         Route::get('/products/create','create')->name('admin.product.create');
         Route::post('/products/store','store')->name('admin.product.store');
+        Route::get('/products/{product}/edit','edit')->name('admin.product.edit');
+        Route::put('/products/{product}','update')->name('admin.product.update');
+        Route::delete('/products/{photo}','destroy')->name('admin.product.destroy');
     });
 });
 
