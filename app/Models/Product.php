@@ -24,4 +24,12 @@ class Product extends Model
         'color',
         'product_main_image'
     ];
+
+    /**
+     * Get the images for the product.
+     */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

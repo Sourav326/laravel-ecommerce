@@ -49,6 +49,11 @@
                 {{ session('danger') }}
             </div>
         @endif
+        @if (session('success'))
+            <div class="login-alert login-alert-success alert-style">
+                {{ session('success') }}
+            </div>
+        @endif
             <div class="formbg-inner padding-horizontal--48">
               <span class="padding-bottom--15">Sign in to your account</span>
               <form id="stripe-login" method="post" action="{{route('login.post')}}">
@@ -64,7 +69,7 @@
                       <a href="#">Forgot your password?</a>
                     </div>
                   </div>
-                  <input type="password" class="border @error('password') input-error @enderror" name="password">
+                  <input type="password" class="border @error('password') input-error @enderror" id="password" name="password">
                 </div>
                 <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
                   <label for="checkbox">
@@ -72,7 +77,7 @@
                   </label>
                 </div>
                 <div class="field padding-bottom--24">
-                  <input class="border" type="submit" name="submit" value="Login">
+                  <input class="border submit" type="submit" id="submit" name="submit" value="Login">
                 </div>
                 <div class="field">
                   <a class="ssolink" href="#">Use single sign-on (Google) instead</a>
@@ -88,5 +93,7 @@
     </div>
   </div>
 </body>
+
+<script src="{{asset('assets/front/js/custom.js')}}"></script>
 
 </html>

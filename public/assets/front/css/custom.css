@@ -24,3 +24,12 @@
     top: 10px;
     z-index: 999;
 }
+
+.login-alert-success {
+    background-color: #a2f1c8;
+    color: #129b07;
+    border-radius: 5px;
+}
+
+
+

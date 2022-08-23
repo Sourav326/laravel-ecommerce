@@ -44,7 +44,8 @@ class ProductController extends Controller
         return redirect()->back()->with('success','Great! Product created successfully');
     }
     
-    
+
+
     /**
      * view for edit the product
      *

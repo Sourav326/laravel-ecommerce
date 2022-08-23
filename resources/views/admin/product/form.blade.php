@@ -241,7 +241,7 @@
             </div>
             <div class="mb-3">
                 <label for="images" name="product_other_images" class="form-label">Product Other Images</label>
-                <input class="form-control" type="file" id="product_other_images" name="product_other_images" multiple="">
+                <input class="form-control" type="file" id="product_other_images" name="product_other_images[]" multiple="">
             </div>
         </div>
     </div>

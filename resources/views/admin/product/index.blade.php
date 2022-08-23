@@ -34,7 +34,7 @@
                         <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                             <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                                 class="avatar avatar-xs pull-up">
-                                <img src="{{ url('storage/'.$product->product_main_image) }}"
+                                <img src="{{ asset($product->product_main_image) }}"
                                     alt="{{$product->product_main_image}}" class="rounded-circle" />
                             </li>
                         </ul>
@@ -60,11 +60,11 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{route('admin.product.edit',[$product->id])}}"><i
                                         class="bx bx-edit-alt me-1"></i> Edit</a>
-                                <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalCenter"><i
+                                <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalCenter_{{$product->id}}"><i
                                         class="bx bx-edit-alt me-1"></i> Delete</div>
                             </div>
                             <!-- Model -->
-                            <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+                            <div class="modal fade" id="modalCenter_{{$product->id}}" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">

@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,18 @@ Route::controller(AuthController::class)->group(function () {
     Route::middleware('is_login')->group(function () {
         Route::get('/logout','logout')->name('logout');
         Route::get('/profile','profile')->name('profile');
+    });
+});
+
+
+Route::middleware('is_login')->group(function () {
+    Route::controller(ShopController::class)->group(function () {
+        Route::get('/shop','index')->name('shop');
+        Route::get('/product-detail/{product}','show')->name('productDetail');
+    });
+
+    Route::controller(WishlistController::class)->group(function () {
+        Route::post('/wishlist/{product_id}','store')->name('wishlist');
     });
 });
 

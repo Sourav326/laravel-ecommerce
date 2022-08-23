@@ -67,7 +67,7 @@ class AuthController extends Controller
      */
     public function logout(AuthService $authService) {
         $authService->logout();
-        return Redirect('login');
+        return redirect("login")->with('success','Logout successfully');
     }
 
 
