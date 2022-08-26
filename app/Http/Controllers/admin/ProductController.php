@@ -31,19 +31,18 @@ class ProductController extends Controller
     public function create(){
         return view('admin.product.create');
     }
-    
-    
+
+
     /**
      * For storing the product
      *
      * @return response()
      */
     public function store(ProductRequest $request,ProductService $productService){
-        // $data = $request->validated();
         $check = $productService->create($request);
         return redirect()->back()->with('success','Great! Product created successfully');
     }
-    
+
 
 
     /**
@@ -55,8 +54,8 @@ class ProductController extends Controller
         $product = $productService->edit($id);
         return view('admin.product.edit', ['product' => $product]);
     }
-    
-    
+
+
     /**
      * For update the product
      *

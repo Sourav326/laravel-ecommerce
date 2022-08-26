@@ -1,4 +1,4 @@
-@if(isset($product)) 
+@if(isset($product))
     <form method="post" action="{{route('admin.product.update',$product->id)}}" enctype="multipart/form-data">
         @method('put')
 @else
@@ -77,6 +77,9 @@
                 value="{{old('sale_price_per_unit',isset($product->sale_price_per_unit) ? $product->sale_price_per_unit : null)}}"
                 />
             </div>
+            @error('sale_price_per_unit')
+            <div class="error">{{ $message }}</div>
+        @enderror
         </div>
         <div class="col-xl mb-3">
             <label class="form-label" for="status">Product Status</label>

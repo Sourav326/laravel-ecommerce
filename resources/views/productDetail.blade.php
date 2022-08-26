@@ -14,8 +14,10 @@
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
                             @foreach($product->images as $image)
-                                <img data-imgbigurl="img/product/details/product-details-2.jpg"
-                                    src="{{$image->image}}" alt="">
+                            <div style="width:100px;height:100px">
+                                <img data-imgbigurl="{{$image->image}}"
+                                    src="{{$image->image}}" alt="" style="width:100%;height:100%">
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -50,7 +52,7 @@
                             @endif
                         </form>
                         <ul>
-                            <li><b>Availability</b> 
+                            <li><b>Availability</b>
                             @if($product->stock_quantity > 0)
                                 <span>In Stock</span>
                             @else

@@ -32,9 +32,9 @@ Route::get('/', function () {
 Route::controller(AuthController::class)->group(function () {
     Route::middleware('alreadyLogin')->group(function () {
         Route::get('/registration','registration')->name('registration');
-        Route::post('post-registration', 'postRegistration')->name('registration.post'); 
+        Route::post('post-registration', 'postRegistration')->name('registration.post');
         Route::get('/login','login')->name('login');
-        Route::post('post-login', 'postLogin')->name('login.post'); 
+        Route::post('post-login', 'postLogin')->name('login.post');
     });
     Route::middleware('is_login')->group(function () {
         Route::get('/logout','logout')->name('logout');
@@ -51,6 +51,7 @@ Route::middleware('is_login')->group(function () {
 
     Route::controller(WishlistController::class)->group(function () {
         Route::post('/wishlist/{product_id}','store')->name('wishlist');
+        Route::get('/wishlist','index')->name('wishlist.index');
     });
 });
 
@@ -59,7 +60,7 @@ Route::middleware('is_login')->group(function () {
 
 //Admin Routes
 Route::prefix('admin')->middleware('is_admin')->group(function () {
-    
+
     Route::get('/',[DashboardController::class,'index'])->name('admin.dashboard');
 
     //Product Routes
