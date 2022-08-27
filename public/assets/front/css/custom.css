@@ -54,7 +54,6 @@
 
 .wishlist-responsive-table li {
     border-radius: 3px;
-    padding: 25px 30px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
@@ -68,11 +67,13 @@
     font-weight: 700;
     background: #7fad39;
     letter-spacing: 2px;
+    padding: 10px 0px;
 }
 
 .wishlist-table-row {
     background-color: #ffffff;
     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    align-items: center;
 }
 
 .wishlist-col-1 {
@@ -89,6 +90,56 @@
 
 .wishlist-col-4 {
     flex-basis: 25%;
+}
+
+.price-per-unit{
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-right: 10px;
+    color: red;
+
+}
+.wishlist-icon-close{
+    justify-content: center;
+    display: flex;
+    color: red;
+}
+
+
+.add-to-cart-disabled{
+    background: #c9e49f;
+}
+
+.cart-submit-icon{
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ebebeb;
+}
+
+.empty-cart-message{
+    font-size: 20px;
+    font-weight: 400;
+    align-items: center;
+    margin-bottom: -3px;
+}
+
+.empty-cart-sub-message{
+    font-size: 12px;
+}
+.empty-cart-message i{
+    font-size: 2rem;
+    padding: 0 10px;
+}
+
+.empty-cart-main-div{
+    text-align: center;
+    padding: 20px;
+}
+.empty-cart-main-div img{
+    width: 250px;
+    height: auto;
 }
 
 @media all and (max-width: 767px) {
@@ -111,7 +162,4 @@
         flex-basis: 50%;
         text-align: right;
     }
-}
-
-
 }

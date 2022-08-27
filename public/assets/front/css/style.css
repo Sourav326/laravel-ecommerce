@@ -1715,6 +1715,7 @@ ol {
 	padding: 16px 28px 14px;
 	margin-right: 6px;
 	margin-bottom: 5px;
+	border: none;
 }
 
 .product__details__text .heart-icon {

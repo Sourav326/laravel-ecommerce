@@ -51,7 +51,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{asset('assets/front/img/logo.png')}}" alt=""></a>
+                        <a href="{{route('home')}}"><img src="{{asset('assets/front/img/logo.png')}}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -76,9 +76,9 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="{{route('wishlist.index')}}"><i class="fa fa-heart"></i> <span>{{$wishlist}}</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$cart}}</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <div class="header__cart__price">item: <span>Rs {{$cartTotal}}</span></div>
                     </div>
                 </div>
             </div>

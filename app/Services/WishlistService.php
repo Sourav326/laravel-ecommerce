@@ -3,7 +3,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\Wishlist;
-use App\Models\User;
+use App\Models\Product;
 
 
 use Illuminate\Http\Request;
@@ -38,7 +38,14 @@ class WishlistService
  * @return void
  */
     public function index(){
-        $wislists =  User::where('id',Auth::user()->id)->with('wishlist')->get();
+        return $wishlists = Wishlist::where('user_id',Auth::user()->id)->get();
+    }
+
+    public function product($wishlists){
+        foreach($wishlists as $wishlist){
+            $products[] = Product::where('id',$wishlist->product_id)->first();
+        }
+        return $products;
     }
 
 }

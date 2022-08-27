@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,14 +45,24 @@ Route::controller(AuthController::class)->group(function () {
 
 
 Route::middleware('is_login')->group(function () {
+
+    //Product Routes
     Route::controller(ShopController::class)->group(function () {
         Route::get('/shop','index')->name('shop');
         Route::get('/product-detail/{product}','show')->name('productDetail');
     });
 
+    //Whislist Routes
     Route::controller(WishlistController::class)->group(function () {
-        Route::post('/wishlist/{product_id}','store')->name('wishlist');
+        Route::get('/wishlist/{product_id}','store')->name('wishlist');
         Route::get('/wishlist','index')->name('wishlist.index');
+    });
+
+    //Cart Routes
+    Route::controller(CartController::class)->group(function () {
+        Route::post('/cart/{product_id}','store')->name('cart.store');
+        Route::get('/cart','index')->name('cart.index');
+        Route::get('/cart/{product_id}','destroy')->name('cart.destroy');
     });
 });
 

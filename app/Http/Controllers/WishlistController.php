@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Wishlist;
+use App\Models\Product;
 use App\Services\WishlistService;
 
 class WishlistController extends Controller
@@ -23,7 +24,14 @@ class WishlistController extends Controller
 
 
     public function index(WishlistService $wishlistService){
-        $wislists = $wishlistService->index();
-        return view('wishlist')->with('wislists',$wislists);
+        $wishlists = $wishlistService->index();
+        if(count($wishlists) > 0){
+            $products = $wishlistService->product($wishlists);
+            return view('wishlist')->with('products',$products);
+        } else {
+            return view('wishlist')->with('message','Your wishlist is empty');
+        }
+        
+        
     }
 }
