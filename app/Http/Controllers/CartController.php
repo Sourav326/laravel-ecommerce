@@ -31,7 +31,11 @@ class CartController extends Controller
         return redirect()->back()->with('success','Cart Updated');
     }
 
-    public function updateQuantity(){
-
+    public function checkOut(CartService $cartService){
+        $carts = $cartService->index();
+        if(count($carts) > 0){
+            $products = $cartService->product($carts);
+            return view('checkOut')->with('products',$products);
+        } 
     }
 }

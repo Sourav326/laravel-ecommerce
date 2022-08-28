@@ -27,10 +27,10 @@
                     href="{{route('productDetail',[$product->id])}}">{{$product->title}}</a></div>
             <div class="wishlist-col wishlist-col-3" data-label="Customer Name">
                 @if($product->sale_price_per_unit > 0)
-                    <span class="price-per-unit">Rs {{$product->price_per_unit}}</span>
-                    Rs {{$product->sale_price_per_unit}}
+                    <span class="price-per-unit">₹ {{$product->price_per_unit}}</span>
+                    ₹ {{$product->sale_price_per_unit}}
                 @else
-                    Rs {{$product->price_per_unit}}
+                    ₹ {{$product->price_per_unit}}
                 @endif
             </div>
             @if($product->stock_quantity > 0)

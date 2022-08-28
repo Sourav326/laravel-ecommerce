@@ -63,6 +63,7 @@ Route::middleware('is_login')->group(function () {
         Route::post('/cart/{product_id}','store')->name('cart.store');
         Route::get('/cart','index')->name('cart.index');
         Route::get('/cart/{product_id}','destroy')->name('cart.destroy');
+        Route::get('/check-out','checkOut')->name('checkOut');
     });
 });
 

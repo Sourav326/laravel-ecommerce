@@ -47,6 +47,7 @@ class CartService
     }
 
     public function product($carts){
+        $cartTotal = 0;
         foreach($carts as $cart){
             $product = Product::where('id',$cart->product_id)->first();
             $product->sale_price_per_unit ? $price = $product->sale_price_per_unit : $price = $product->price_per_unit;
@@ -56,7 +57,12 @@ class CartService
             $product['total'] = $total;
             $products[] = $product;
         }
-        return $products;
+
+        foreach($products as $product){
+            $cartTotal  += $product['total'];
+        }
+
+        return [$products,$cartTotal];
     }
 
     public function destroy($id){

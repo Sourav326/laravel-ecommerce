@@ -78,7 +78,7 @@
                             <li><a href="{{route('wishlist.index')}}"><i class="fa fa-heart"></i> <span>{{$wishlist}}</span></a></li>
                             <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$cart}}</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>Rs {{$cartTotal}}</span></div>
+                        <div class="header__cart__price">item: <span>₹ {{$cartTotal}}</span></div>
                     </div>
                 </div>
             </div>

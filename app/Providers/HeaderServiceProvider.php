@@ -35,7 +35,7 @@ class HeaderServiceProvider extends ServiceProvider
                 $carts = Cart::where('user_id',auth()->user()->id)->get();
                 if(count($carts) > 0){
                     $products = $cartService->product($carts);
-                    foreach($products as $product){
+                    foreach($products[0] as $product){
                         $cartTotal  += $product['total'];
                     }
                 }
