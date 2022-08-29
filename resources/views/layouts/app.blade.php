@@ -65,6 +65,7 @@
     <script src="{{asset('assets/front/js/mixitup.min.js')}}"></script>
     <script src="{{asset('assets/front/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('assets/front/js/main.js')}}"></script>
+    <script src="{{asset('assets/front/js/custom.js')}}"></script>
 
 </body>
 

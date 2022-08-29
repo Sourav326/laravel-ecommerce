@@ -41,7 +41,7 @@ class HeaderServiceProvider extends ServiceProvider
                 }
             } else{
                 $wishlist = 0;
-                $cart = 0;
+                $carts = 0;
             }
             $view->with([
                 'wishlist'=> $wishlist,

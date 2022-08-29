@@ -8,6 +8,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\AddressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,8 +65,19 @@ Route::middleware('is_login')->group(function () {
         Route::post('/cart/{product_id}','store')->name('cart.store');
         Route::get('/cart','index')->name('cart.index');
         Route::get('/cart/{product_id}','destroy')->name('cart.destroy');
-        Route::get('/check-out','checkOut')->name('checkOut');
     });
+
+    //Checkout Routes
+    Route::controller(CheckoutController::class)->group(function () {
+        Route::get('/check-out','checkOut')->name('checkOut');
+        Route::post('razorpay-payment', [CheckoutController::class, 'store'])->name('razorpay.payment.store');
+    });
+
+    //Address Routes
+    Route::controller(AddressController::class)->group(function () {
+        Route::post('/address','store')->name('address.store');
+    });
+
 });
 
 
