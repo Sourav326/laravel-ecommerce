@@ -17,7 +17,7 @@
                                 <div class="list-group">
                                     @foreach($addresses as $address)
                                         <label class="list-group-item">
-                                            <input class="form-check-input me-1" type="radio" name="address" value="" {{$address->is_active == 1 ? 'checked' : ''}}>
+                                            <input class="form-check-input me-1 delivery-address-at-checkout" type="radio" name="address" value="{{$address->id}}" {{$address->is_active == 1 ? 'checked' : ''}}>
                                             <div style="padding-left:20px">
                                                 <p>
                                                     <span class="delivery-personal-detail">{{$address->name}}</span>
@@ -95,7 +95,7 @@
 
                         </div>
                     </section>
-                    <input type="radio" name="accordion" id="cb2" />
+                    <input type="radio" name="accordion" id="cb2" disabled/>
                     <section class="box">
                         <label class="box-title" for="cb2">ORDER SUMMERY</label>
                         <label class="box-close wishlist-table-header" style="padding-left:1rem" for="acc-close"><span
@@ -106,7 +106,7 @@
                             </ul>
                         </div>
                     </section>
-                    <input type="radio" name="accordion" id="cb3" />
+                    <input type="radio" name="accordion" id="cb3" disabled/>
                     <section class="box">
                         <label class="box-title" for="cb3">PAYMENT OPTION</label>
                         <label class="box-close wishlist-table-header" style="padding-left:1rem" for="acc-close"><span
@@ -130,7 +130,7 @@
                                     </script>
                                     <input type="submit" value="Pay Now" class="site-btn">
                                 </form>
-                                <input type="submit" value="Cash On Delivery" class="site-btn" style="margin-left:10px">
+                                <input value="Cash On Delivery" class="site-btn" style="margin-left:10px">
                             </div>
 
                         </div>
